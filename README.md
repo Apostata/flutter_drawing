@@ -6,21 +6,21 @@ ___
 
 ### para calculo de angulos
 * $\pi$ = 180º em radianos, 2 * $\pi$ = 360º 
-* 2$\pi$ / lados = angulo de cada lado
+* 2 $\pi$ / lados = angulo de cada lado
 * **Para desenhar um poligono equilátero, informando apenas o número de lados e a largura do lado, a seção circular de cada lado do poligono será um triangula equilátero. Para acharmos o raio, teremos de usar a forumla do SENO. para isso, dividiremos o triangulo equilátero no meio para resultar em 2 triangulos retangulos, onde a hipotenusa é o Raio. Neste caso o cateto oposto = largura do lado /2 e o SENO será da metade do angulo.**
-**raio = (largura do lado \2) / SEN($\alpha/2$)**
+**raio = (largura do lado \2) / SEN( $\alpha$ / 2)**
 
 * Ou podemos passar apenas o número de lados e o raio(um pouco incomum) mas neste caso já temos tudo que é necessário.
 
 ![image info](./assets/selcao-circular-lado-poligono.jpeg)
   ***legenda:***
--  <font color="red">___</font> *seção circular do lado*
--  <font color="green">___</font> *raio (hipotenusa)*
+-  $\textcolor{red}{-}$ *seção circular do lado*
+-  $\textcolor{green}{-}$ *raio (hipotenusa)*
   
 ### Senos cossenos e Tangentes
-SEN($\alpha$) = cateto oposto / hipotenusa
-COS($\alpha$) = cateto adjacente / hipotenusa
-TAN($\alpha$) = cateto oposto / cateto adjacente
+SEN( $\alpha$ ) = cateto oposto / hipotenusa 
+COS( $\alpha$ ) = cateto adjacente / hipotenusa 
+TAN( $\alpha$ ) = cateto oposto / cateto adjacente
 
 ___
 
