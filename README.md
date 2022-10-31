@@ -32,7 +32,7 @@ Classe abastrata nativa, para criar uma forma personalizada. Exemplos:
 #### `LinePainter` 
 para desenhar uma linha:
 
-    ```dart
+  ```dart
     class LinePainter extends CustomPainter {
     @override
     void paint(Canvas canvas, Size size) {
@@ -51,11 +51,11 @@ para desenhar uma linha:
         return false;
     }
     }
-    ```
+  ```
 #### `CirclePainter` 
 para desenhar um Circulo:
   
-    ```dart
+  ```dart
     class CirclePainter extends CustomPainter {
         @override
         void paint(Canvas canvas, Size size) {
@@ -75,11 +75,11 @@ para desenhar um Circulo:
             return false;
         }
     }
-    ```
+  ```
 #### `CirclePathPainter` 
 para desenhar um Circulo a partir de um paht:
   
-    ```dart
+  ```dart
     class CirclePathPainter extends CustomPainter {
         @override
         void paint(Canvas canvas, Size size) {
@@ -109,7 +109,7 @@ para desenhar um Circulo a partir de um paht:
             return false;
         }
     }
-    ```
+  ```
 #### `PoligonPainter`
 Para desenhar poligonos (3 ou mais lados):
 ```dart
