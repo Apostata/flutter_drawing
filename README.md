@@ -265,7 +265,7 @@ class CirclePathPainter extends CustomPainter {
   }
 }
 ```
-**Tutorial** 
-Souvik Biswas: https://github.com/sbis04?tab=repositories 
+**Tutorial by [Souvik Biswas](https://github.com/sbis04)** 
+[https://blog.codemagic.io/flutter-custom-painter/](https://blog.codemagic.io/flutter-custom-painter/)
 
-**Gostaria de agradecer a ajuda do meu irmão Fabio Souza, com a parte da Trigonometria :kissing_heart:**
+**Gostaria de agradecer a ajuda do meu irmão [Fabio Souza](https://github.com/frlps), com a Trigonometria :kissing_heart:**

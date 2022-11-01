@@ -5,6 +5,30 @@ void main() {
   runApp(const MyApp());
 }
 
+List<Map<String, dynamic>> json = [
+  {
+    'label': 'Quantidade de lados',
+    'value': 4,
+    'minValue': 2,
+    'maxValue': 360,
+    'unidade': null
+  },
+  {
+    'label': 'Largura dos lados',
+    'value': 100,
+    'minValue': 1,
+    'maxValue': 1000,
+    'unidade': 'px'
+  },
+  {
+    'label': 'Duração da animação',
+    'value': 5,
+    'minValue': 1,
+    'maxValue': 10,
+    'unidade': 's'
+  }
+];
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -15,7 +39,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyPainter(),
+      home: MyPainter(
+        controls: json,
+      ),
       debugShowCheckedModeBanner: false,
     );
   }

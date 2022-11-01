@@ -1,54 +1,64 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_drawing/components/poligon-painter-side-width.dart';
-import 'package:flutter_drawing/components/slide-shape-controls.dart';
-// import 'package:flutter_drawing/components/line-painter.dart';
-// import 'package:flutter_drawing/components/circle-painter.dart';
-// import 'package:flutter_drawing/components/circle-path-painter.dart';
-// import 'package:flutter_drawing/components/poligon-painter.dart';
+import 'package:flutter_drawing/Pages/my-painter-view.dart';
+import 'package:flutter_drawing/models/Measure.dart';
 
 class MyPainter extends StatefulWidget {
-  const MyPainter({super.key});
+  List<Map<String, dynamic>> controls;
+  MyPainter({super.key, required this.controls});
 
   @override
-  State<MyPainter> createState() => _MyPainterState();
+  State<MyPainter> createState() => _MyPainterController();
 }
 
-class _MyPainterState extends State<MyPainter> {
-  int _sides = 2;
-  double _sideWidth = 100;
+class _MyPainterController extends State<MyPainter>
+    with TickerProviderStateMixin {
+  late AnimationController _rotationController;
+  late List<Map<String, dynamic>> newMeasuresList;
 
-  void _setSides(int sides) {
-    setState(() {
-      _sides = sides;
-    });
+  @override
+  void initState() {
+    super.initState();
+    _rotationController = AnimationController(
+      duration: Duration(seconds: widget.controls[2]['value'].toInt()),
+      vsync: this,
+    )
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          _rotationController.repeat();
+        }
+      })
+      ..forward();
   }
 
-  void _setSideWidth(double sideWidth) {
-    setState(() {
-      _sideWidth = sideWidth;
-    });
+  @override
+  void dispose() {
+    _rotationController.dispose();
+    super.dispose();
+  }
+
+  void _changeAnimationDuration(value) {
+    _rotationController.stop();
+    _rotationController.duration = Duration(seconds: value);
+    _rotationController.forward();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Drawing'),
-      ),
-      body: CustomPaint(
-        // painter: LinePainter(),
-        // painter: CirclePainter(),
-        // painter: CirclePathPainter(),
-        // painter: PoligonPainter(sides: 6, radius: 10),
-        painter:
-            PoligonPainterSideWidth(sides: _sides, larguraLado: _sideWidth),
-        child: SlideShapeControls(
-          sides: _sides,
-          sideWidth: _sideWidth,
-          setSides: _setSides,
-          setSideWidth: _setSideWidth,
-        ),
-      ),
-    );
+    newMeasuresList = widget.controls
+        .map(
+          (measure) => {
+            ...measure,
+            ...{
+              'function': (num value) => {
+                    if (measure['label'].contains('animação'))
+                      {_changeAnimationDuration(measure['value'].toInt())},
+                    setState(() => measure['value'] = value.toDouble()),
+                  },
+            }
+          },
+        )
+        .toList();
+    return MyPainterView(
+        measures: newMeasuresList, rotationController: _rotationController);
   }
 }
